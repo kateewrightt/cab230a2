@@ -5,6 +5,10 @@ const bcrypt = require("bcrypt");
 const secretKey = "SUPER SECRET KEY DO NOT STEAL";
 const middleware = require("./middleware");
 
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Swagger UI" });
+});
+
 router.get("/countries", function (req, res, next) {
   req.db
     .from("data")
