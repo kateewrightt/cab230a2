@@ -9,6 +9,6 @@ module.exports = {
     host: "localhost",
     database: "volcanoes",
     user: "root",
-    password: "Cab230!",
+    password: "rootroot",
   },
 };

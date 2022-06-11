@@ -3,7 +3,7 @@ var router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const secretKey = "SUPER SECRET KEY DO NOT STEAL";
-const middleware = require("./middleware");
+const middleware = require("../middleware/middleware.js");
 
 router.get("/", function (req, res, next) {
   res.render("index", { title: "Swagger UI" });
