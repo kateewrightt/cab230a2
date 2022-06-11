@@ -5,11 +5,22 @@ const bcrypt = require("bcrypt");
 const secretKey = "SUPER SECRET KEY DO NOT STEAL";
 const middleware = require("./middleware");
 
+router.get("/", function (req, res, next) {
+  res.render("index", { title: "Swagger UI" });
+});
+
 router.get("/countries", function (req, res, next) {
   req.db
     .from("data")
     .select("country")
-
+    .orderBy("country", "asc")
+    .groupBy("country")
+    .pluck("country")
+    .then((rows) => {
+      res.status(200).json(rows);
+    })
+    .catch((err) => {
+      console.log(err);
       res.status(500).json({
         error: true,
         message: "Error in MySQL query",
