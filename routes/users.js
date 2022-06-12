@@ -28,7 +28,7 @@ router.post("/register", function (req, res, next) {
   }
 
   req.db
-    .from("Users")
+    .from("users")
     .select("*")
     .where({ email })
     .then((users) => {
@@ -76,7 +76,7 @@ router.post("/login", function (req, res, next) {
     return;
   }
   req.db
-    .from("Users")
+    .from("users")
     .select("*")
     .where({ email })
     .then((users) => {
